@@ -43,6 +43,7 @@ public class UserAction extends BaseAction{
 		user.setModifiedTime(new Timestamp(Calendar.getInstance().getTimeInMillis()));
 		user.setMobile("12345678");
 		user.setNow(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+		user.setPassword("pwd");
 		userService.addUser(user);
 		return SUCCESS;
 		
