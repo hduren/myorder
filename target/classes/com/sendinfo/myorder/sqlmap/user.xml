@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="user">
+	<typeAlias alias="userInfoAlias" type="com.sendinfo.myorder.model.User" />
+	<resultMap id="userInfoResultMap" class="userInfoAlias">
+		<result column="id" property="id" />
+		<result column="email" property="email" />
+		<result column="user_name" property="userName" />
+		<result column="password" property="password" />
+		<result column="mobile" property="mobile" />
+		<result column="modified_time" property="modifiedTime" />
+		<result column="create_time" property="createTime" />
+		<result column="deleted" property="deleted" />
+
+	</resultMap>
+	<insert id="adduser" parameterClass="userInfoAlias">
+		INSERT INTO order_user
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="id">
+				id
+			</isNotNull>
+			<isNotNull prepend="," property="email">
+				email
+			</isNotNull>
+			<isNotNull prepend="," property="userName">
+				user_name
+			</isNotNull>
+			<isNotNull prepend="," property="password">
+				password
+			</isNotNull>
+			<isNotNull prepend="," property="mobile">
+				mobile
+			</isNotNull>
+			<isNotNull prepend="," property="modifiedTime">
+				modified_time
+			</isNotNull>
+			<isNotNull prepend="," property="createTime">
+				create_time
+			</isNotNull>
+			<isNotNull prepend="," property="deleted">
+				deleted
+			</isNotNull>
+			
+			)
+		</dynamic>
+		values
+		<dynamic prepend="(">
+			<isNotNull prepend="," property="id">
+				#id#
+			</isNotNull>
+			<isNotNull prepend="," property="email">
+				#email#
+			</isNotNull>
+			<isNotNull prepend="," property="userName">
+				#userName#
+			</isNotNull>
+			<isNotNull prepend="," property="password">
+				#password#
+			</isNotNull>
+			<isNotNull prepend="," property="mobile">
+				#mobile#
+			</isNotNull>
+			<isNotNull prepend="," property="modifiedTime">
+				#modifiedTime#
+			</isNotNull>
+			<isNotNull prepend="," property="createTime">
+				#createTime#
+			</isNotNull>
+			<isNotNull prepend="," property="deleted">
+				#deleted#
+			</isNotNull>
+			
+			)
+		</dynamic>
+	</insert>
+
+</sqlMap>

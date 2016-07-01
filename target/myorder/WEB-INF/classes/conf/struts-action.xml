@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="user" extends="struts-default" namespace="/user">
+
+
+		<action name="order" class="com.sendinfo.myorder.action.OrderAction"
+			method="getString">
+
+		</action>
+<action name="addUser" class="userAction"
+			method="addUser">
+			<result name="success">/user/addUserSucc.jsp</result>
+		</action>
+		<!-- <action name="addUser" class="com.sendinfo.myorder.action.UserAction"
+			method="addUser">
+			<result name="success">/user/addUserSucc.jsp</result>
+		</action> -->
+		<action name="addUserPort" class="com.sendinfo.myorder.action.UserAction"
+			method="addUserPort">
+			<result name="json"></result>
+		</action>
+
+	</package>
+</struts>

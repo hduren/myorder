@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-autowire="byName">
+
+	<!-- 相关数据源和事务管理的定义 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/myorder_db" />
+		<property name="username" value="tomcatuser" />
+		<property name="password" value="abc" />
+	</bean>
+	
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:/conf/sqlmap-config.xml
+			</value>
+		</property>
+		
+	</bean>
+<!-- 	<bean id="userDao" class="com.sendinfo.myorder.dao.UserDao">
+	 
+	
+	</bean> -->
+
+
+
+	<!-- <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean"> 
+		<property name="configLocation"> <value>classpath:/conf/sqlmap-config.xml</value> 
+		</property> <property name="dataSource"> <ref bean="dataSource" /> </property> 
+		</bean> -->
+
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<property name="configLocation"> <value>classpath:/conf/sqlmap-config.xml</value> 
+		</property> <property name="dataSource"> <ref bean="dataSource" /> </property> 
+		</bean> -->
+
+</beans>
