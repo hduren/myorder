@@ -16,6 +16,8 @@ public class BaseAction extends ActionSupport implements ServletResponseAware,
 	protected String portRequest;
 	protected HttpServletResponse response;
 	protected HttpServletRequest request;
+	protected String basePath;
+	protected String base;
 
 	public String getRequestBody() {
 
@@ -75,4 +77,62 @@ public class BaseAction extends ActionSupport implements ServletResponseAware,
 		// TODO Auto-generated method stub
 		request = arg0;
 	}
+	
+	public String getBase() {
+		if (null == base)
+			base = getContextPath();
+		return base;
+	}
+
+	public void setBase(String base) {
+		this.base = base;
+	}
+	
+	/**
+	 * @return the request
+	 */
+	public HttpServletRequest getRequest() {
+		return request;
+	}
+
+	/**
+	 * @param request the request to set
+	 */
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+	/**
+	 * @return the basePath
+	 */
+	public String getBasePath() {
+		return basePath;
+	}
+
+	/**
+	 * @param basePath the basePath to set
+	 */
+	public void setBasePath(String basePath) {
+		this.basePath = basePath;
+	}
+
+	/**
+	 * @param response the response to set
+	 */
+	public void setResponse(HttpServletResponse response) {
+		this.response = response;
+	}
+
+	private String getContextPath() {
+		if (this.getRequest() != null) {
+			String p = this.getRequest().getScheme() + "://"
+					+ this.getRequest().getServerName();
+			if (this.getRequest().getServerPort() != 80)
+				p = p + ":" + this.getRequest().getServerPort();
+			p = p + this.getRequest().getContextPath();
+			return p;
+		} else
+			return "";
+	}
+
 }

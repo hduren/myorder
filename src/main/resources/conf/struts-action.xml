@@ -10,8 +10,7 @@
 			method="getString">
 
 		</action>
-<action name="addUser" class="userAction"
-			method="addUser">
+		<action name="addUser" class="userAction" method="addUser">
 			<result name="success">/user/addUserSucc.jsp</result>
 		</action>
 		<!-- <action name="addUser" class="com.sendinfo.myorder.action.UserAction"

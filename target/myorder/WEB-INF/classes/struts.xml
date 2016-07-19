@@ -7,7 +7,7 @@
 	<package name="defaultuser" extends="struts-default" namespace="/">
 
 		<action name="index" class="com.opensymphony.xwork2.ActionSupport">
-			<result name="success">index.jsp</result>
+			<result name="success" type="freemarker">/WEB-INF/test/index.ftl</result>
 		</action>
 		</package>
 	<include file="/conf/struts-action.xml"></include>
